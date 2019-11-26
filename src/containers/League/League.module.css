@@ -1,0 +1,44 @@
+.League {
+  background-color: white;
+  width: 65%;
+  height: 500px;
+  border-radius: 8pt;
+  overflow-y: scroll;
+  /* Firefox */
+  scrollbar-width: none;
+  /* IE 10+ */
+  -ms-overflow-style: none;
+}
+
+.League::-webkit-scrollbar {
+  /* Chrome */
+  width: 0px;
+}
+
+.Sport {
+  color: #2B3856;
+  font-size: 2em;
+  font-weight: 700;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.Rink {
+  color: #2C3539;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.Division {
+  color: #2C3539;
+  font-size: 1.25em;
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.About {
+  color: #2C3539; 
+  font-size: .75em;
+  text-align: center;
+  padding-top: 15px;
+}

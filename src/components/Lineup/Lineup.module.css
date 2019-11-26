@@ -1,0 +1,38 @@
+.Lineup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  background-color: gainsboro;
+}
+
+.Slot {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+  margin-top: 2px;
+  min-height: 55px;
+}
+
+.Position {
+  font-size: 18pt;
+  font-weight: 700;
+  text-align: center;
+  padding-left: 15pt;
+  padding-right: 15pt;
+  width: 25pt;
+  border-right: 1px solid gainsboro;
+}
+
+.Pick {
+  background-color: white;
+  padding-left: 15pt;
+  font-size: 18pt;
+  color: darkgray;
+  cursor: pointer;
+}
+
+.Submit {
+
+}

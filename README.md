@@ -1,4 +1,28 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## FanTSY LEAGUE
+##### Little League to Beer League....zero pro's here!
+___
+
+## Pages:
+
+**Login Page**
+
+**Sign-up Page**
+
+**League Page**
+
+**Lineup Page**
+
+**Select Player Page** (need better name)
+
+**Player View**
+
+**Game Results**
+
+#### Additional Components
+**Nav**
+**Player Card**
+**
+
 
 ## Available Scripts
 

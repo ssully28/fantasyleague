@@ -1,0 +1,35 @@
+.Slot {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+  margin-top: 2px;
+  min-height: 55px;
+}
+
+.Position {
+  color: black;
+  font-size:  18pt;
+  font-weight: 700;
+  text-align: center;
+  padding-left: 15pt;
+  padding-right: 15pt;
+  width: 25px;
+  height: 100%;
+  border-right: 1px solid gainsboro;
+}
+
+.Player {
+  width: 80%;
+  font-size: 18pt;
+  color: darkgrey;
+  padding-left: 10px;
+}
+
+.Edit {
+  text-align: center;
+  padding-left: 15pt;
+  padding-right: 15pt;
+  height: 100%;
+  border-left: 1px solid gainsboro;
+}

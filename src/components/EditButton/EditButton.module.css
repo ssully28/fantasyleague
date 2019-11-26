@@ -1,0 +1,9 @@
+.EditButton {
+  color: red;
+  width: 100%;
+  font-size: 18pt;
+  font-weight: 700;
+  text-align: center;
+  margin: auto auto;
+  cursor: pointer;
+}
