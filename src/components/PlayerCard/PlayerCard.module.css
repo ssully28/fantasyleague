@@ -31,6 +31,14 @@
   font-weight: 700;
 }
 
+.Team {
+  font-size: 12pt;
+  font-weight: 700;
+  color: darkslateblue;
+  font-style: italic;
+  padding-bottom: 5px;
+}
+
 .FantasyStats {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -43,6 +51,6 @@
 }
 
 .Positions {
+  padding-left: 3px;
   width: 100%;
-  background-color: orange;
 }

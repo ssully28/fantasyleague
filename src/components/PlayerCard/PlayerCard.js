@@ -5,6 +5,11 @@ import classes from './PlayerCard.module.css';
 const PlayerCard = (props) => {
   const player = props.player;
   // let playerStats = {};
+  const positions = props.player.pos.map((pos) => {
+    return (
+      <Position key={pos} pos={pos} />
+    )
+  });
 
   console.log(player);
   return (
@@ -12,13 +17,15 @@ const PlayerCard = (props) => {
       <img className={classes['Img']} src={player.img} alt={player.lname} />
       <div className={classes['CardBody']}>
         <span className={classes['Fname']}>{player.fname}</span>&nbsp;<span className={classes['Lname']}>{player.lname}</span>
-        <span className={classes['Positions']}><Position /></span>
-        <div>Goals: {player.g}</div>
-        <div>Assists: {player.a}</div>
+        <span className={classes['Positions']}>{positions}</span>
+        <div className={classes['Team']}>{player.team}</div>
+        <div className={classes['Salary']}>Salary: {player.salary}</div>
       </div>
       <div className={classes['FantasyStats']}>
-        <div className={classes['Salary']}>Salary: {player.salary}</div>
         <div>PPG: {player.ppg}</div>
+        <div>Goals: {player.g}</div>
+        <div>Assists: {player.a}</div>
+        <div>PIMs: {player.pim}</div>
       </div>
     </div>
   );

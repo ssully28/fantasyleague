@@ -1,5 +1,9 @@
 .Position {
-  background-color: grey;
+  background-color: gainsboro;
+  border: 1pt solid lightgray;
   color: white;
-  width: 30px;
+  display: inline-block;
+  border-radius: 8px;
+  padding: 1px 8px;
+  margin-right: 3px;
 }
