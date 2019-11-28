@@ -1,92 +1,84 @@
 ## FanTSY LEAGUE
 ##### Little League to Beer League....zero pro's here!
+
+**Author:**
+Steve Sullivan Great Guy
+ssully28@gmail.com
 ___
 
-## Pages:
+### Documentation:
+This app is growing pretty quick so I figure would be good to start documenting things as I go along...as well as start doing more frequent check-ins with my code.
 
+### Game Info:
+I'm setting this up for the rink I play roller hockey at (Contra Costa Sports Complex) - I play hockey in two leagues (Sunday 30+ and Thursday Night Silver).
+
+For Fantasy, there should be a "results" view for a week that has completed, along with a "standings" for the season (running total). For the upcoming week a user should be abl
+
+### User Flow:
+1 - Enter site
+Get splash screen as F.E. connects to API
+2 - If user does not have active session they'll see the link to login/register
+3 - Once logged in they'll see list of "leagues" to play (Sunday 30+, Silver, etc...)
+4 - When user selects a league they then see the ongoing standings and last weeks results (shows all players scores and if the user played, shows their picks and results) and a link to play the upcoming week.
+5 - Clicking link will bring up the lineup page.
+6 - Lineup page shows lineup (either the players they've selected/submitted || the empty slots). User can then click the green + button on the right to select from a list of users for that position.
+
+#### Pages:
+
+**Splash Screen**
+[not started]
 **Login Page**
-
+[not started]
 **Sign-up Page**
-
+[not started]
 **League Page**
-
+[not started]
 **Lineup Page**
+60% done
+Shows users lineup for the upcoming round.
 
 **Select Player Page** (need better name)
-
+[not started]
 **Player View**
-
+[probably not necessary - so few stats available, simple card view from 'select player page' should suffice...]
 **Game Results**
-
+[not started]
 #### Additional Components
 **Nav**
+[just starting now]
 **Player Card**
-**
+[DONE]
+
+**Other Ideas to Possibly Add Later**
+* League wide comments/smack talk....
+* Admin page to edit players/stats
+* History view to show lineup/results for a specific week
+* Teams page - to show league standings/schedule/players etc...
+* Expanded player card view to show stats from last X number of games....
+* Eventually change player card layout to use space around css - put player image in the middle, then have the different stats and info kind of hug the outline of the image - will save a lot of space for phone screens.
+
+###API
+This app will require an API and DB....which I haven't started yet. Since this readme is handy here, I'll likely keep some notes here while I'm going through the front end for the various endpoints/datapoints I'll need to develop later.
+
+___
+##Usage:
+
+**Start App:**
+`npm start`
+
+**Run Tests:**
+`npm test`
+
+**Build App for Deployment**
+`npm run build`
 
 
-## Available Scripts
+**Eject (just don't)**
+`npm run eject`
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
+**More Info**
+This app was bootstrapped with Create React App, to learn more:
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

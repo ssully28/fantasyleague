@@ -1,0 +1,17 @@
+.Nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: #2B3856;
+  color: white;
+  padding: 10px 25px;
+}
+
+.LeagueName {
+  font-style: italic;
+  font-weight: 700;
+  cursor: pointer
+}
+
+.Salary {
+  font-weight: 700;
+}
