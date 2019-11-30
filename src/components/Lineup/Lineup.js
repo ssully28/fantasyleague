@@ -10,19 +10,21 @@ const Lineup = (props) => {
   for (let i in props.lineup) {
     // First define the player as null:
     let player = null;
-    
+
     // Then if we have an ID grab the player info from the player list:
     if (props.lineup[i]) {
-      player = props.players.filter(player => { 
+      player = props.players.filter(player => {
         return player.id === props.lineup[i];
       })[0];
     }
 
     currentLineup.push(
-      <Slot 
+      <Slot
         key={i}
         slot={i}
         player={player}
+        removePlayer={props.removePlayer}
+        addPlayer={props.addPlayer}
       />
     );
   }
@@ -42,7 +44,7 @@ export default Lineup;
 
 /*
   props.lineup.f1
-   ? <PlayerCard player={props.players.filter(player => { 
+   ? <PlayerCard player={props.players.filter(player => {
        return player.id === props.lineup.f1;
      })} />
   : null

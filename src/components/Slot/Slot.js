@@ -8,14 +8,14 @@ const Slot = (props) => {
 
   // Set a default in the case we don't have a player in a slot:
   let playerCard = 'Add Player...';
-  
+
   // Eventually have to change this to be able to be greyed out....
   let buttonState = 'Add';
 
 
   // Then if we do have a player create a card for this slot:
   if (props.player) {
-    playerCard = <PlayerCard player={props.player}/>
+    playerCard = <PlayerCard player={props.player} />
     buttonState = 'Remove';
   }
 
@@ -25,7 +25,13 @@ const Slot = (props) => {
     <div className={classes['Slot']}>
       <div className={classes['Position']}>{slotName}</div>
       <div className={classes['Player']}>{playerCard}</div>
-      <div className={classes['Edit']}><EditButton buttonState={buttonState} /></div>
+      <div className={classes['Edit']}>
+        <EditButton
+          slot={props.slot}
+          buttonState={buttonState}
+          removePlayer={props.removePlayer}
+          addPlayer={props.addPlayer} />
+      </div>
     </div>
   );
 };

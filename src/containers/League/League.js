@@ -19,7 +19,7 @@ class League extends Component {
     },
     // Players to be loaded from API...
     players: [
-      { id: 1001, fname: 'Sidney', lname: 'Crosby', pos: ['F','D'], salary: 15700, ppg: 20, gp: 8, g: 5, a: 14, pim: 3, team: 'Penguins', img: 'https://photos.smugmug.com/photos/i-btdgmzB/0/f0c92997/Th/i-btdgmzB-Th.png' },
+      { id: 1001, fname: 'Sidney', lname: 'Crosby', pos: ['F', 'D'], salary: 15700, ppg: 20, gp: 8, g: 5, a: 14, pim: 3, team: 'Penguins', img: 'https://photos.smugmug.com/photos/i-btdgmzB/0/f0c92997/Th/i-btdgmzB-Th.png' },
       { id: 1002, fname: 'Timo', lname: 'Meier', pos: ['F'], salary: 6700, ppg: 20, gp: 5, g: 21, a: 11, pim: 3, team: 'Sharks', img: 'https://photos.smugmug.com/photos/i-btdgmzB/0/f0c92997/Th/i-btdgmzB-Th.png' },
       { id: 2001, fname: 'Thomas', lname: 'Chabot', pos: ['D'], salary: 5300, ppg: 20, gp: 6, g: 2, a: 4, pim: 3, team: 'Senators', img: 'https://photos.smugmug.com/photos/i-btdgmzB/0/f0c92997/Th/i-btdgmzB-Th.png' },
       { id: 2002, fname: 'Doug', lname: 'Hamilton', pos: ['D'], salary: 7500, ppg: 20, gp: 7, g: 2, a: 4, pim: 3, team: 'Hurricanes', img: 'https://photos.smugmug.com/photos/i-btdgmzB/0/f0c92997/Th/i-btdgmzB-Th.png' },
@@ -31,8 +31,20 @@ class League extends Component {
       { date: '2019-11-28', time: 9, hometeam: 'Rogue Squadron', awayteam: 'Warriors' },
     ]
   }
+
+  removePlayer = (slot) => {
+    // Might be able to refactor this...
+    const lineup = this.state.lineup;
+    lineup[slot] = null;
+    this.setState({ lineup: lineup });
+  }
+
+  addPlayer = (slot) => {
+    console.log("ADDING PLAYER TO SLOT: ", slot);
+  }
+
   render() {
-    
+
     // Get the current salary:
     const currentSalary = this.state.players.reduce((prev, curr) => {
       return prev + curr['salary'];
@@ -45,8 +57,12 @@ class League extends Component {
       <div className={classes['League']}>
         <div className={classes['Sport']}>Fantasy Hockey</div>
         <div className={classes['Rink']}>Contra Costa Sports Complex</div>
-        <Nav league={this.state.league} cap={remainingSalary}  />
-        <Lineup lineup={this.state.lineup} players={this.state.players} />
+        <Nav league={this.state.league} cap={remainingSalary} />
+        <Lineup
+          lineup={this.state.lineup}
+          players={this.state.players}
+          removePlayer={this.removePlayer}
+          addPlayer={this.addPlayer} />
         <div className={classes['About']}>Created For Contra Costa Sports Complex</div>
         <div className={classes['About']}>By Steve Sullivan Great Guy</div>
       </div>

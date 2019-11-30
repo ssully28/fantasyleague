@@ -49,6 +49,10 @@ Shows users lineup for the upcoming round.
 **Player Card**
 [DONE]
 
+**TODO**
+* Make responsive...I imagine if anyone actually uses this, they'll do it on their phone at the rink 10 minutes before they play!
+* Rename League container...
+
 **Other Ideas to Possibly Add Later**
 * League wide comments/smack talk....
 * Admin page to edit players/stats
@@ -56,9 +60,14 @@ Shows users lineup for the upcoming round.
 * Teams page - to show league standings/schedule/players etc...
 * Expanded player card view to show stats from last X number of games....
 * Eventually change player card layout to use space around css - put player image in the middle, then have the different stats and info kind of hug the outline of the image - will save a lot of space for phone screens.
+* Consider refactoring to use Redux... Not sure it's worth the effort yet - I don't think I'll have to do that much prop drilling..., but something to consider.
 
 ###API
 This app will require an API and DB....which I haven't started yet. Since this readme is handy here, I'll likely keep some notes here while I'm going through the front end for the various endpoints/datapoints I'll need to develop later.
+
+###Database
+Going to use Postgres - the data we'll be dealing with benefits from having relational tables in this case. We'll have schedules and stats for multiple leagues, team tables, etc...
+**Tables**
 
 ___
 ##Usage:
