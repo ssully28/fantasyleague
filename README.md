@@ -52,6 +52,7 @@ Shows users lineup for the upcoming round.
 **TODO**
 * Make responsive...I imagine if anyone actually uses this, they'll do it on their phone at the rink 10 minutes before they play!
 * Rename League container...
+* Create add player function - will need to open a modal to list all players that can be added to that particular slot, when user clicks the + button, should add player to state and close modal.
 
 **Other Ideas to Possibly Add Later**
 * League wide comments/smack talk....

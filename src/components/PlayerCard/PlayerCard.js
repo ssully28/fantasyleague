@@ -11,7 +11,6 @@ const PlayerCard = (props) => {
     )
   });
 
-  console.log(player);
   return (
     <div className={classes['PlayerCard']}>
       <img className={classes['Img']} src={player.img} alt={player.lname} />
