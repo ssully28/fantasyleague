@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 // import Standings from '../../components/Standings/Standings';
+import BackgroundPic from '../../assets/images/background.png';
 import Nav from '../../components/Nav/Nav';
 import Lineup from '../../components/Lineup/Lineup';
 import Modal from '../../components/UI/Modal/Modal';
@@ -40,24 +41,27 @@ class League extends Component {
       { date: '2019-11-28', time: 7, hometeam: 'RPA', awayteam: 'Cobras' },
       { date: '2019-11-28', time: 8, hometeam: 'Iron Man', awayteam: 'Warriors' },
       { date: '2019-11-28', time: 9, hometeam: 'Rogue Squadron', awayteam: 'Warriors' },
-    ]
+    ],
+    selectablePlayers: []
   }
 
   removePlayer = (slot) => {
     // Might be able to refactor this...
+    // TODO : Re-calculate the remaining salary!!!
     const lineup = this.state.lineup;
     lineup[slot] = null;
     this.setState({ lineup: lineup });
   }
 
   addPlayer = (slot) => {
-    this.setState({selectingPlayer: true});
+    this.setState({ selectingPlayer: true });
     let pos = slot.charAt(0);
     console.log("Adding a: ", pos);
     let players = this.state.players.filter(player => player.pos.includes(pos));
+    this.setState({selectablePlayers: players});
     console.log(players);
     /*
-      1 - Open Player Modal
+      1 - Open Player Modal [DONE]
       2 - List all players eligible for this slot
       3 - When user clicks the + on the right add user to lineup state
       3a - Update Salary state
@@ -66,12 +70,13 @@ class League extends Component {
   }
 
   addPlayerCancel = () => {
-    this.setState({selectingPlayer: false});
+    this.setState({ selectingPlayer: false });
   };
 
   render() {
 
     // Get the current salary:
+    // TODO - fix, need to get just the combined salary for the players in the state lineup!
     const currentSalary = this.state.players.reduce((prev, curr) => {
       return prev + curr['salary'];
     }, 0);
@@ -81,12 +86,15 @@ class League extends Component {
 
     return (
       <Fragment>
-        <Modal show={this.state.selectingPlayer} modalClosed={this.addPlayerCancel}>
-          
-        </Modal>
+        <Modal 
+          show={this.state.selectingPlayer}
+          modalClosed={this.addPlayerCancel}
+          selectablePlayers={this.state.selectablePlayers} />
         <div className={classes['League']}>
-          <div className={classes['Sport']}>Fantasy Hockey</div>
-          <div className={classes['Rink']}>Contra Costa Sports Complex</div>
+          <div className={classes['TopBanner']}>
+            <div className={classes['Sport']}>Fantasy Hockey</div>
+            <div className={classes['Rink']}>Contra Costa Sports Complex</div>
+          </div>
           <Nav league={this.state.league} cap={remainingSalary} />
           <Lineup
             lineup={this.state.lineup}
