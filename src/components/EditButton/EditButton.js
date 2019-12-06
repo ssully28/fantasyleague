@@ -8,7 +8,7 @@ const EditButton = (props) => {
   }
 
   const addPlayer = () => {
-    props.addPlayer(props.slot);
+    props.addPlayer(props.slot, props.playerId);
   }
 
   let button = 'fas fa-plus-circle';

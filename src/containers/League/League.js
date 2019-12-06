@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 // import Standings from '../../components/Standings/Standings';
-import BackgroundPic from '../../assets/images/background.png';
 import Nav from '../../components/Nav/Nav';
 import Lineup from '../../components/Lineup/Lineup';
 import Modal from '../../components/UI/Modal/Modal';
@@ -12,6 +11,7 @@ class League extends Component {
     salaryCap: 55000,
     averageSalary: 6500,
     selectingPlayer: false,
+    selectingPlayerForSlot: null,
     // Lineup to be saved to API for user...
     lineup: {
       F1: 1001,
@@ -53,25 +53,60 @@ class League extends Component {
     this.setState({ lineup: lineup });
   }
 
+  /** 
+  GAH...poor name choice. I have sort of a collision here....
+  addPlayer is the overall process for adding a player to a lineup, 
+  meaning, it finds all eligible players for that slot (forward, defenseman or goalie)
+  and presents the list to the user.... If the user clicks the plus, we then need to call
+  the insertPlayerIntoLineup function to actually add the player to the lineup.
+  */
   addPlayer = (slot) => {
+    // This will open the modal so the user can select a player:
     this.setState({ selectingPlayer: true });
+    
+    // Grab the position from the slot (will always be character at position 0):
     let pos = slot.charAt(0);
-    console.log("Adding a: ", pos);
+
+    // Need to grab the list of eligible players, so filter all players with that position:
     let players = this.state.players.filter(player => player.pos.includes(pos));
-    this.setState({selectablePlayers: players});
-    console.log(players);
-    /*
-      1 - Open Player Modal [DONE]
-      2 - List all players eligible for this slot
-      3 - When user clicks the + on the right add user to lineup state
-      3a - Update Salary state
-      4 - Close the Player Modal
-    */
+
+    // Some state that will need to get passed down to some components
+    this.setState({
+      selectablePlayers: players,
+      selectingPlayerForSlot: slot
+    });
   }
 
   addPlayerCancel = () => {
-    this.setState({ selectingPlayer: false });
+    this.setState({
+      selectingPlayer: false,
+      selectingPlayerForSlot: null
+    });
   };
+
+  /**
+   * Will need a Player ID and a slot....
+   */
+  insertPlayerIntoLineup = (slot, playerId) => {
+    // Copy the current lineup from state:
+    const lineup = { ...this.state.lineup };
+
+    // Go through lineup to see if player is already in a slot:
+    for (let s in lineup) {
+      // if so, remove them from that slot:
+      if (lineup[s] === playerId) {
+        lineup[s] = null;
+      }
+    }
+
+    // Now add the player to the new slot:
+    lineup[slot] = playerId;
+
+    this.setState({ lineup: lineup });
+
+    // Close the modal and do some cleanup:
+    this.addPlayerCancel();
+  }
 
   render() {
 
@@ -86,21 +121,28 @@ class League extends Component {
 
     return (
       <Fragment>
-        <Modal 
+        <Modal
           show={this.state.selectingPlayer}
+          slot={this.state.selectingPlayerForSlot}
           modalClosed={this.addPlayerCancel}
-          selectablePlayers={this.state.selectablePlayers} />
+          addPlayer={this.insertPlayerIntoLineup}
+          selectablePlayers={this.state.selectablePlayers}
+        />
+
         <div className={classes['League']}>
           <div className={classes['TopBanner']}>
             <div className={classes['Sport']}>Fantasy Hockey</div>
             <div className={classes['Rink']}>Contra Costa Sports Complex</div>
           </div>
+
           <Nav league={this.state.league} cap={remainingSalary} />
+
           <Lineup
             lineup={this.state.lineup}
             players={this.state.players}
             removePlayer={this.removePlayer}
-            addPlayer={this.addPlayer} />
+            addPlayer={this.addPlayer}
+          />
           <div className={classes['About']}>Created For Contra Costa Sports Complex</div>
           <div className={classes['About']}>By Steve Sullivan Great Guy</div>
         </div>

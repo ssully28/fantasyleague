@@ -16,7 +16,7 @@
 }
 
 .Sport {
-  color: white;
+  color: #2C3539;
   font-size: 2.2em;
   font-weight: 700;
   text-align: center;
@@ -24,7 +24,7 @@
 }
 
 .Rink {
-  color: white;
+  color: #2C3539;
   font-size: 1.7em;
   text-align: center;
 }
@@ -43,7 +43,7 @@
   padding-top: 8px;
 }
 
-.TopBanner {
+.TopBanner_X {
   background-image: url(../../assets/images/background2.png);
   background-repeat: no-repeat;
   background-attachment: fixed;

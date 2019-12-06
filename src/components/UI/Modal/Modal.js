@@ -10,22 +10,19 @@ class Modal extends Component {
   }
 
   render() {
-    console.log(this.props.selectablePlayers);
     let playerArr = this.props.selectablePlayers;
     let playerList = [];
 
     if (playerArr) {
       playerList = this.props.selectablePlayers.map((player) => {
         return (
-          <div className={classes['PlayerList']}>
+          <div key={player.id} className={classes['PlayerList']}>
             <div><PlayerCard player={player} /></div>
-            <div><EditButton /></div>
+            <div><EditButton playerId={player.id} slot={this.props.slot} addPlayer={this.props.addPlayer}/></div>
           </div>
         );
       });
     }
-
-    console.log(playerList);
 
     return (
       <Fragment>
