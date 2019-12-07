@@ -1,6 +1,16 @@
 ## Fantasy League
 ##### Little League to Beer League....zero pro's here!
 
+**Note to self**
+Putting this project on the back burner while I work on a couple of other projects/assessments.
+When I come back, I'd like to work on:
+1. making the app responsive - especially for phones
+2. reformatting the player card for the modal - looks clunky right now
+3. soften the corners on the modal
+4. improve the title bar
+5. disable players from the modal whose salary > than available cap
+6. change card for goalies - they have different stats
+
 **Author:**
 Steve Sullivan Great Guy
 ssully28@gmail.com

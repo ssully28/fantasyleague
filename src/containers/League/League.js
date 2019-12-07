@@ -109,11 +109,10 @@ class League extends Component {
 
   render() {
 
-    // Get the current salary:
+    // Get the current salary total - need to filter by players in lineup, then get salary from each:
     const currentSalary = this.state.players.filter((player) => Object.values(this.state.lineup).includes(player.id)).reduce((prev, curr) => {
       return prev + curr['salary'];
     }, 0);
-
 
     // To calculate the available cap space:
     const remainingSalary = this.state.salaryCap - currentSalary;
