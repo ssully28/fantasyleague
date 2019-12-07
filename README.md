@@ -1,4 +1,4 @@
-## FanTSY LEAGUE
+## Fantasy League
 ##### Little League to Beer League....zero pro's here!
 
 **Author:**
@@ -34,8 +34,8 @@ Get splash screen as F.E. connects to API
 **League Page**
 [not started]
 **Lineup Page**
-60% done
-Shows users lineup for the upcoming round.
+75% done
+Display and allow user to edit their lineup for the upcoming round...
 
 **Select Player Page** (need better name)
 [not started]
@@ -68,7 +68,14 @@ This app will require an API and DB....which I haven't started yet. Since this r
 
 ###Database
 Going to use Postgres - the data we'll be dealing with benefits from having relational tables in this case. We'll have schedules and stats for multiple leagues, team tables, etc...
+
 **Tables**
+(general info now...will obviously need to be fleshed out quite a bit as this evolves)
+league
+players
+users
+schedule
+game_results
 
 ___
 ##Usage:

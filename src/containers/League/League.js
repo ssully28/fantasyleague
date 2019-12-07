@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-// import Standings from '../../components/Standings/Standings';
 import Nav from '../../components/Nav/Nav';
 import Lineup from '../../components/Lineup/Lineup';
 import Modal from '../../components/UI/Modal/Modal';
@@ -9,16 +8,16 @@ class League extends Component {
   state = {
     league: 'Thursday Silver',
     salaryCap: 55000,
-    averageSalary: 6500,
+    currentSalary: 0,
     selectingPlayer: false,
     selectingPlayerForSlot: null,
     // Lineup to be saved to API for user...
     lineup: {
-      F1: 1001,
-      F2: 1002,
-      D1: 2001,
-      D2: 2002,
-      G: 3000
+      F1: null,
+      F2: null,
+      D1: null,
+      D2: null,
+      G: null
     },
     // Players to be loaded from API...
     players: [
@@ -63,7 +62,7 @@ class League extends Component {
   addPlayer = (slot) => {
     // This will open the modal so the user can select a player:
     this.setState({ selectingPlayer: true });
-    
+
     // Grab the position from the slot (will always be character at position 0):
     let pos = slot.charAt(0);
 
@@ -111,10 +110,10 @@ class League extends Component {
   render() {
 
     // Get the current salary:
-    // TODO - fix, need to get just the combined salary for the players in the state lineup!
-    const currentSalary = this.state.players.reduce((prev, curr) => {
+    const currentSalary = this.state.players.filter((player) => Object.values(this.state.lineup).includes(player.id)).reduce((prev, curr) => {
       return prev + curr['salary'];
     }, 0);
+
 
     // To calculate the available cap space:
     const remainingSalary = this.state.salaryCap - currentSalary;
